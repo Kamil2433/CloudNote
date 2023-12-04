@@ -24,11 +24,12 @@ export default function LoginContext({children}) {
       // const {setalert,setmessage}=Notescontext()
 
       try {
-     const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/auth/",{
+     const response=await fetch('https://cloudnote-backend-etc8.onrender.com/api/auth/',{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
         'Access-Control-Allow-Origin':'*'
+      
       },
       body:JSON.stringify({id:inputid,password:inputpassword})
       
@@ -41,7 +42,7 @@ export default function LoginContext({children}) {
       setauth(res);
       getname(inputid,inputpassword,res);
 
-      return response;
+     return setsucess(true);
       // useAlertenvokefunction("Login Successful")
 
       // setalert(true)
@@ -50,7 +51,7 @@ export default function LoginContext({children}) {
       // console.log(res);
       //   console.log(r);
   
-      return response;
+      // return response;
 
   } catch (error) {
         console.log(error)
@@ -100,7 +101,8 @@ export default function LoginContext({children}) {
       const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/auth/reg",{
        method:'POST',
        headers:{
-         'Content-Type':'application/json'
+         'Content-Type':'application/json',
+         'Access-Control-Allow-Origin':'*'
        },
        body:JSON.stringify(formdata)
        
@@ -112,13 +114,15 @@ export default function LoginContext({children}) {
     // setalert(true)
     // setmessage('User Registered Succesfully')
     // Alertenvoke("Login Successful")
-    return response;
+    // return response;
+    const set=await setsucess(true);
   
   }else{
     // setalert(true)
     // // setmessage(res)
     // // Alertenvoke(res)
     // return response;
+   const aw=await setsucess(false)
   
   }
   
@@ -136,13 +140,14 @@ export default function LoginContext({children}) {
 
     const [loginid,setid]=useLocalStoragehook("id",' ');
     const [auth,setauth]=useLocalStoragehook("auth",' ');
-    const [name,setname]=useLocalStoragehook("name",' ')
+    const [name,setname]=useLocalStoragehook("name",' ');
+    const [success,setsucess]=useState(false);
 
 
   return (
     <LogContext.Provider
     value={{
-         setid,loginid,loginauser,reggisterauser,auth,setauth,name,setname
+         setid,loginid,loginauser,reggisterauser,auth,setauth,name,setname,success,setsucess
     }}
   >
     {children}
