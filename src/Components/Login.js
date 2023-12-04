@@ -14,7 +14,7 @@ export default function Login() {
   const name = useRef();
   const password=useRef();
 
-  const {setid,reggisterauser,loginauser,setname,auth}=useLogin();
+  const {setid,reggisterauser,loginauser,setname,auth,success,setsucess}=useLogin();
   const {setalert,setmessage,setvariant}=useNotes()
 
   const [loginview,setview]=useState(true);
@@ -30,14 +30,18 @@ export default function Login() {
 
   console.log(res)
 
-  if(res.ok){
+  if(success){
 
+   const va= await setvariant('success')
+   const mess= await setmessage("login successful")
     setalert(true)
-    setmessage("login successful")
+    setsucess(false);
   }else{
+   const se=await setmessage("login unsuccessful");
+    const vari=await setvariant('danger')
     setalert(true)
-    setmessage("login unsuccessful",res.error);
-    setvariant('danger')
+    setmessage(null);
+    // setvariant('danger')
     
   }
 
@@ -49,14 +53,18 @@ export default function Login() {
     e.preventDefault();
     
     const res=await reggisterauser(id.current.value,password.current.value,name.current.value);
-    if(res){
 
-      setalert(true)
-      setmessage("Registeration successful")
+    if(success){
+
+     const set=await  setmessage("Registeration successful,Please Login")
+     const setsu=await setsucess(false)
+      await setalert(true)
+      // await setmessage(null)
     }else{
-      setalert(true)
-      setmessage("Registeration unsuccessful",res.body.error);
-      setvariant('danger')
+     const set=await setmessage("Registeration unsuccessful, ID Unavailable try with different ID");
+      const va=await  setvariant('danger')
+      await  setalert(true)
+      //  await setmessage(null);
       
     }
 
