@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const mongoURI='mongodb+srv://kamil:<kamil>@cluster0.u8ecui6.mongodb.net/?retryWrites=true&w=majority'
+const mongoURI='mongodb+srv://kamil:kamil@cluster0.u8ecui6.mongodb.net/?retryWrites=true&w=majority'
 // mongodb://localhost:27017/
 // mongodb://127.0.0.1:27017/?directConnection=true
 
