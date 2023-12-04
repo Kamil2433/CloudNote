@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const mongoURI='mongodb://127.0.0.1:27017/CloudNote1?directConnection=true'
+const mongoURI='mongodb+srv://kamil:<password>@cluster0.u8ecui6.mongodb.net/?retryWrites=true&w=majority'
 // mongodb://localhost:27017/
 // mongodb://127.0.0.1:27017/?directConnection=true
 
