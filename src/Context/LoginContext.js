@@ -24,7 +24,7 @@ export default function LoginContext({children}) {
       // const {setalert,setmessage}=Notescontext()
 
       try {
-     const response=await fetch("http://cloudnote-backend-etc8.onrender.com/api/auth/",{
+     const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/auth/",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -65,7 +65,7 @@ export default function LoginContext({children}) {
       // console.log(auth)
             setauth(resp);
 
-    const response=await fetch("http://cloudnote-backend-etc8.onrender.com/api/auth/getuser",{
+    const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/auth/getuser",{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -97,7 +97,7 @@ export default function LoginContext({children}) {
   
       console.log(JSON.stringify(formdata))
   
-      const response=await fetch("http://cloudnote-backend-etc8.onrender.com/api/auth/reg",{
+      const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/auth/reg",{
        method:'POST',
        headers:{
          'Content-Type':'application/json'
