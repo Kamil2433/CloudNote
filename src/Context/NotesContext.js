@@ -26,7 +26,7 @@ export default function Notescontext({children}) {
 
     async function addnote(inputtitle,inputdescription){
 
-      const response=await fetch("http://cloudnote-backend-etc8.onrender.com/api/notes/addnote",{
+      const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/notes/addnote",{
         method:'POST',
         headers:{
           'Content-Type':'application/json',
@@ -61,7 +61,7 @@ export default function Notescontext({children}) {
 
     async function fetchnotes(){
 
-      const response=await fetch("http://cloudnote-backend-etc8.onrender.com/api/notes/getnotes",{
+      const response=await fetch("https://cloudnote-backend-etc8.onrender.com/api/notes/getnotes",{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
@@ -85,7 +85,7 @@ export default function Notescontext({children}) {
 
     console.log("here is the input to the fun",inputdesc,inputtitle)
 
-    const response=await fetch(`http://cloudnote-backend-etc8.onrender.com/api/notes/update/${id}`,{
+    const response=await fetch(`https://cloudnote-backend-etc8.onrender.com/api/notes/update/${id}`,{
       method:'PUT',
       headers:{
         'Content-Type':'application/json',
@@ -111,7 +111,7 @@ async function deletenote(id){
 
   // console.log("here is the input to the fun",inputdesc,inputtitle)
 
-  const response=await fetch(`http://cloudnote-backend-etc8.onrender.com/api/notes/delete/${id}`,{
+  const response=await fetch(`https://cloudnote-backend-etc8.onrender.com/api/notes/delete/${id}`,{
     method:'DELETE',
     headers:{
       'Content-Type':'application/json',
