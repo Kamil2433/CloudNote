@@ -49,7 +49,7 @@ export default function Login() {
     e.preventDefault();
     
     const res=await reggisterauser(id.current.value,password.current.value,name.current.value);
-    if(res.ok){
+    if(res){
 
       setalert(true)
       setmessage("Registeration successful")
