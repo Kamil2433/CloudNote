@@ -16,12 +16,13 @@ router.get("/getnotes", fetchuser, async (req, res) => {
 router.post("/addnote", fetchuser, async (req, res) => {
   console.log(req.user.id);
   try {
-    const { title, description, image } = req.body;
+    const { title, description, image,date } = req.body;
 
     const note = new Notes({
       title,
       description,
       image,
+      date,
       User: req.user.id,
     });
 
